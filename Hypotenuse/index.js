@@ -15,3 +15,21 @@ document.getElementById("submitButton").onclick = function(){
     document.getElementById("cLabel").innerHTML = "Side C: " + hypotenuse;
 
 }
+
+let counter = 0;
+
+document.getElementById("decreaseBtn").onclick = function(){
+    counter -= 1;
+    document.getElementById("countLabel").innerHTML = counter;
+}
+
+document.getElementById("resetBtn").onclick = function(){
+    counter = 0;
+    document.getElementById("countLabel").innerHTML = counter;
+}
+
+document.getElementById("increaseBtn").onclick = function(){
+    counter+= 1;
+    document.getElementById("countLabel").innerHTML = counter;
+}
+
