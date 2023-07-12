@@ -33,3 +33,14 @@ document.getElementById("increaseBtn").onclick = function(){
     document.getElementById("countLabel").innerHTML = counter;
 }
 
+
+
+let userName = "ThalesSergiodeAguiar";
+
+console.log(userName.length); 
+
+let phoneNumber = "31-98607-6883";
+
+phoneNumber = phoneNumber.replaceAll("-",".");
+
+console.log(phoneNumber);
