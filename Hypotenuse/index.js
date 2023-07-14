@@ -3,6 +3,8 @@ let hypotenuse;
 let cathetusA;
 let cathetusB;
 
+//document.getElementById pick the value in  to d
+
 document.getElementById("submitButton").onclick = function(){
     cathetusA = document.getElementById("aTextBox").value;
     cathetusA = Number(cathetusA);
@@ -16,7 +18,7 @@ document.getElementById("submitButton").onclick = function(){
 
 }
 
-let counter = 0;
+let counter = 0; 
 
 document.getElementById("decreaseBtn").onclick = function(){
     counter -= 1;
@@ -34,13 +36,13 @@ document.getElementById("increaseBtn").onclick = function(){
 }
 
 
+let fullName = window.prompt("Digite seu nome");
+let firstName;
+let lastName;
 
-let userName = "ThalesSergiodeAguiar";
+firstName = fullName.slice(0,fullName.indexOf(" ")+ 1); //Primeiro esse metódo slice pega o primeiro espaço a partir do primeiro caractere, e tudo que está antes desse caractere é atribuido a firstName.
 
-console.log(userName.length); 
+lastName = fullName.slice(fullName.indexOf(" ")+ 1); //Nesse caso ometódo slice pega tudo que esta após o espaço + 1 posição e atribui a lastName.
 
-let phoneNumber = "31-98607-6883";
-
-phoneNumber = phoneNumber.replaceAll("-",".");
-
-console.log(phoneNumber);
+console.log(firstName);
+console.log(lastName);
