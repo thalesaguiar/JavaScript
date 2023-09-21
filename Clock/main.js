@@ -1,56 +1,38 @@
 function setDay(day) {
-  switch (day) {
-    case 0:
-      return `Sunday`;
-    case 1:
-      return `Monday`;
-    case 2:
-      return `Tuesday`;
-    case 3:
-      return `Wednesday`;
-    case 4:
-      return `Thursday`;
-    case 5:
-      return `Friday`;
-    case 6:
-      return `Saturday`;
+  const dayWeek = [`Sunday`,`Monday`,`Tuesday`,`Wednesday`,`Thursday`,`Friday`,`Saturday`]
+  return dayWeek[day];
+}
+function formatHour(hour, min ,seg) {
+  if (hour < 12) {
+    return `${hour}:${min}:${seg} AM`
   }
+  return `${hour - 12}:${min}:${seg} PM`;
 }
 function setMonth(month) {
-  switch (month) {
-    case 1:
-      return `January`;
-    case 2:
-      return `February`;
-    case 3:
-      return `March`;
-    case 4:
-      return `April`;
-    case 5:
-      return `May`;
-    case 6:
-      return `June`;
-    case 7:
-      return `July`;
-    case 8:
-      return `August`;
-    case 9:
-      return `September`;
+  const months = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`,`September`, `October`, `November`, `December`];
+  return months[month - 1];
   }
-}
+
 function formatDate(date) {
   const numberDay = date.getDate();
   const day = date.getDay();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
+  const hour = date.getHours();
+  const min = date.getMinutes();
   const seg = date.getSeconds();
   setDay(day);
-  return `${setDay(day)}, ${numberDay} ${setMonth(month)} ${year} `;
+  return `${setDay(day)}, ${numberDay} ${setMonth(month)} ${year} ${formatHour(hour,min,seg)}`;
 }
 
-const date = new Date();
-const dateBrazil = formatDate(date);
+function updateDateTime() {
+  const date = new Date();
+  const dateBrazil = formatDate(date);
+  const result = document.getElementById("date");
+  result.textContent = `${dateBrazil}`;
+}
 
-const result = document.getElementById("date");
+updateDateTime();
 
-result.textContent = `${dateBrazil}`;
+setInterval(updateDateTime, 1000);
+
